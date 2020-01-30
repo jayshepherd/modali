@@ -159,11 +159,11 @@ export const useModali = (options) => {
 
   useEffect(() => {
     if (isShown) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.classList.add('modali-open');
       if (options && options.onShow) {
         options.onShow();
       }
-      document.addEventListener('keydown', handleKeyDown);
-      document.body.classList.add('modali-open');
     }
     if (!isShown && hasToggledBefore) {
       if (options && options.onHide) {
